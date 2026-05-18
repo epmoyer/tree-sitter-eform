@@ -31,7 +31,7 @@
 
         "extensible_row": {
             "type": "PATTERN",
-            "value": "#+[^{\\n/]*"
+            "value": "#\\+[^{\\n/]*"
         },
 
         "heading_row": {
