@@ -1,0 +1,75 @@
+{
+    "name": "eform",
+    "rules": {
+        "source_file": {
+            "type": "REPEAT",
+            "content": {
+                "type": "CHOICE",
+                "members": [
+                    { "type": "SYMBOL", "name": "comment" },
+                    { "type": "SYMBOL", "name": "metadata" },
+                    { "type": "SYMBOL", "name": "question_row" },
+                    { "type": "SYMBOL", "name": "extensible_row" },
+                    { "type": "SYMBOL", "name": "heading_row" },
+                    { "type": "SYMBOL", "name": "info_row" },
+                    { "type": "SYMBOL", "name": "control" },
+                    { "type": "SYMBOL", "name": "node_id" },
+                    { "type": "SYMBOL", "name": "other" }
+                ]
+            }
+        },
+
+        "metadata": {
+            "type": "PATTERN",
+            "value": "\\{[^}]*\"doc_handle\"[^}]*\\}"
+        },
+
+        "question_row": {
+            "type": "PATTERN",
+            "value": "#\\?[^{\\n/]*"
+        },
+
+        "extensible_row": {
+            "type": "PATTERN",
+            "value": "#+[^{\\n/]*"
+        },
+
+        "heading_row": {
+            "type": "PATTERN",
+            "value": "#[^?+%][^{\\n/]*"
+        },
+
+        "info_row": {
+            "type": "PATTERN",
+            "value": "#%[^{\\n/]*"
+        },
+
+        "control": {
+            "type": "PATTERN",
+            "value": "<(?:text|bigtext|date|time|number)(?::[^>]*)?>|\\[ \\]|\\( \\)|\\(X\\)"
+        },
+
+        "node_id": {
+            "type": "PATTERN",
+            "value": "\\{[a-z][a-z0-9_]*\\}"
+        },
+
+        "comment": {
+            "type": "PATTERN",
+            "value": "//[^\\n]*"
+        },
+
+        "other": {
+            "type": "PATTERN",
+            "value": "[^\\s{]+"
+        }
+    },
+
+    "extras": [{ "type": "PATTERN", "value": "[ \\t\\n\\r]+" }],
+
+    "conflicts": [],
+    "precedences": [],
+    "externals": [],
+    "inline": [],
+    "supertypes": []
+}

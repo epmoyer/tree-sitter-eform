@@ -1,0 +1,13 @@
+{"doc_handle": "eform_foo", "doc_version": "2025-08-23"}
+// REVISION HISTORY
+// - 2026-05-18
+//     - Initial Version.
+# Perception{perception}
+    #? How confident are you? {confidence}
+
+        ( ) 1. Very confident {1}
+        ( ) 2. Somewhat confident {2}
+        ( ) 3. Not sure {3}
+        ( ) 4. Somewhat confident {4}
+        ( ) 5. Very confident {5}
+        (X) Unanswered
